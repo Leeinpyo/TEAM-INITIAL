@@ -178,7 +178,7 @@ $roomnum = $_GET['R'];
                         $id = $_SESSION['id'];
                         $name = $_SESSION['name'];
                           echo "<li class=\"s_menu\"><a href=\"../index_logout.php\">Logout</a></li>";
-                          echo "<li class=\"s_menu\"><a href=\"../mypage.php\">$name($id)</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../mypage.php\">$name 님</a></li>";
                         }
 
                         ?>

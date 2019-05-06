@@ -53,13 +53,41 @@ session_start();
 						<img src="../icon/icon_map2.png" />
 					</a>
 				</li>
-				</li>
-				<li class="menu">
-					<a href="../signin/signin.php" onfocus="blur()">
-						<img src="../icon/icon_login2.png" />
-					</a>
-				</li>
-			</ul>
+
+
+
+        <?php
+        if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+        ?>
+
+      </li>
+      <li class="menu">
+        <a href="../signin/signin.php" onfocus="blur()">
+          <img src="../icon/icon_login1.png" />
+        </a>
+      </li>
+
+        <?php
+        }
+        if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
+        $id = $_SESSION['id'];
+        $name = $_SESSION['name'];
+        ?>
+
+      </li>
+      <li class="menu">
+        <a href="../mypage.php" onfocus="blur()">
+          <img src="../icon/icon_mypage1.png" />
+        </a>
+      </li>
+
+        <?php
+        }
+        ?>
+
+
+
+      </ul>
 
 		</header>
 
@@ -116,10 +144,11 @@ session_start();
                         $id = $_SESSION['id'];
                         $name = $_SESSION['name'];
                           echo "<li class=\"s_menu\"><a href=\"../index_logout.php\">Logout</a></li>";
-                          echo "<li class=\"s_menu\"><a href=\"#\">$name 님</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../mypage.php\">$name 님</a></li>";
                         }
 
                         ?>
+
 							<li class="s_menu"><a href="../index.php">HOME</a></li>
 				</ul>
 			</div>
