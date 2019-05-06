@@ -9,9 +9,8 @@
 <br />
 <div id="roomsub">
 	<input type=button value="예약하기"  OnClick="location='reservation.php'"/>
-	<h2>room1</h2>
-	
-	
+	<img src="images/icon_room1.png" alt="icon_room1.png">
+ 	
 	<img src="images/room1.jpg" alt="room1">
 	<table>
 		<colgroup>

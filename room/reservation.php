@@ -49,15 +49,14 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
     <link rel="stylesheet" href="css/reservation.css">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
-				$(document).ready(function () {
-						$("a").each(function () {
-								$(this).click(function () {
-										$(this).addClass("Select");
-										$(this).siblings().removeClass("Select");
-									});
-						});
-				});
-	</script>
+        $(document).ready(function () {
+            $("a").each(function () {
+                $(this).click(function () {
+                    $(this).addClass("Select");        
+                    $(this).siblings().removeClass("Select");                });
+            });
+        });
+    </script>
 </head>
 <body>
 <br />
@@ -168,15 +167,92 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 
 				</ul>
 			</div>
+			<img src="images/day.png" style="width:45%;" >
 		</div>
 	</div>
 	<div id="Pay">
-		<div class="">
-
+		<div class="Rtype">
+			<ul>
+				<li><span>객실명</span>
+					<br/> Room1
+				</li>
+				<li><span>요금</span>
+					<br/> 000000원
+				</li>
+			</ul>
 		</div>
-		<div class="">
-
+		<div class="checkIn">
+			<ul>
+				<li><span>체크인</span>
+					<select name="year">
+						<?php
+							for($i=2019; $i<=2020; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+					<select name="month">
+						<?php
+							for($i=1; $i<=12; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+					<select name="day">
+						<?php
+							for($i=1; $i<=31; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+				</li>
+				<li><span>체크아웃</span>
+					<select name="year">
+						<?php
+							for($i=2019; $i<=2020; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+					<select name="month">
+						<?php
+							for($i=1; $i<=12; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+					<select name="day">
+						<?php
+							for($i=1; $i<=31; $i++){
+									echo "<option value=\"$i\">$i</option>";
+								}
+						?>
+					</select>
+				</li>
+				<li><span>인원</span>
+					<select name="personnel">
+						<?php
+						  {
+							echo "<option value=\"0\">1</option>";
+							echo "<option value=\"1\">2</option>";
+							echo "<option value=\"2\">3</option>";
+							echo "<option value=\"3\">4</option>";
+							echo "<option value=\"4\">5</option>";
+							echo "<option value=\"5\">6</option>";
+							echo "<option value=\"6\">7</option>";
+							echo "<option value=\"7\">8</option>";
+							echo "<option value=\"8\">9</option>";
+							echo "<option value=\"9\">10</option>";
+						  }
+						?>
+					</select>
+				</li>
+				<li class="total"><span>총 금액</span>
+					&nbsp; 00000000원
+				</li>
+			</ul>
 		</div>
+		<input class="reservationbtn" type="button" value="예약">
 	</div>
 </div>
 </body>

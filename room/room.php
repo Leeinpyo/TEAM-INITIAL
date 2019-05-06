@@ -1,7 +1,5 @@
 <?php
 session_start();
-$roomnum = $_GET['R'];
-
 ?>
 
 ﻿<!DOCTYPE html>
@@ -14,7 +12,7 @@ $roomnum = $_GET['R'];
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="../icon57.png">
 <link rel="apple-touch-icon-precomposed" size="114x114" href="../icon114.png">
-<link href="http://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet" />
+<link href="http://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet" />	
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <title>INITIAL RoomInfo</title>
 <script src="../js/jquery-1.11.0.min.js"></script>
@@ -197,7 +195,7 @@ $roomnum = $_GET['R'];
 		</nav>
 	</div>
 	<div id="contents" >
-		<section id="content" class="cf">
+		<section id="content" class="cf"> 
 			<div id="roomB">
 				<div class="roomButton">
 					<button type="button" onclick='open_in_frame("room01.php")' class="btn btn-outline-dark">room1</button>
@@ -223,6 +221,7 @@ $roomnum = $_GET['R'];
         } ?>
 
 
+				<iframe id='my_frame'></iframe>
 			</div>
 		</section>
 	</div>
