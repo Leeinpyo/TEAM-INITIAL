@@ -79,7 +79,7 @@ $row=mysqli_fetch_array($result);
       </li>
       <li class="menu">
         <a href="../signin/signin.php" onfocus="blur()">
-          <img src="../icon/icon_login1.png" />
+          <img src="../icon/icon_login2.png" />
         </a>
       </li>
 
