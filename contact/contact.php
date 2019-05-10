@@ -271,7 +271,7 @@ $current_page = floor($no/$page_size);
                   echo "<li><a href=\"$PHP_SELF?no=$prev_list\">◀</a></li> ";
               }
               else  {
-                      echo "<li>◀</a></li> ";
+                      echo "<li>◁</a></li> ";
                     }
 
               # 페이지 리스트를 출력
@@ -297,7 +297,7 @@ $current_page = floor($no/$page_size);
                   echo "<li><a href=$PHP_SELF?no=$next_list>▶</a></li>";
               }
               else  {
-                    echo "<li>▶</a></li> ";
+                    echo "<li>▷</a></li> ";
                     }
 
               ?>

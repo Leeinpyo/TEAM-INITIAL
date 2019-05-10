@@ -8,7 +8,7 @@ $contact_select = $_POST['contact_select'];
 
 
 <?php
-
+//비회원
 if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
 
   $contact_name =$_POST['contact_name'];
@@ -22,9 +22,13 @@ if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
                 (`contact_title`,`contact_text`,`contact_select`,`contact_name`,`contact_pass`,`contact_ip`,`contact_see`,`contact_wdate`)
         VALUES ('$contact_title','$contact_text','$contact_select','$contact_name',password('$contact_pass'),'$_SERVER[REMOTE_ADDR]',0,now())");
 
+  $contact_id=mysqli_insert_id($db);
+
+  echo "<b>문의_번호 (contact_id) :</b> ".$contact_id."<br>";
+  echo "<b><br><br>3초후 메인페이지로 이동합니다</b><meta http-equiv='refresh' content='3;url=read.php?id=$contact_id'>";
 
 }
-
+//회원
 if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
 
   $id=$_SESSION['id'];
@@ -43,6 +47,10 @@ if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
                 (`contact_title`,`contact_text`,`contact_select`,`contact_name`,`contact_pass`,`contact_ip`,`contact_see`,`contact_wdate`)
         VALUES ('$contact_title','$contact_text','$contact_select','$contact_name','$contact_pass','$_SERVER[REMOTE_ADDR]',0,now())");
 
+  $contact_id=mysqli_insert_id($db);
+
+  echo "<b>문의_번호 (contact_id) :</b> ".$contact_id."<br>";
+  echo "<b><br><br>3초후 메인페이지로 이동합니다</b><meta http-equiv='refresh' content='3;url=read.php?id=$contact_id'>";
 
 }
 
