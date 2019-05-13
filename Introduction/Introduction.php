@@ -193,7 +193,7 @@ session_start();
 	</div>
 	<div id="contents" class="cf">
 		<section id="content" class="cf">
-			<img src="images/room2.png" alt="" />
+			<img src="images/introduction.png" alt="" />
 			<h1 class="team">팀이니셜</h1>
 			<p class="team">팀이니셜 간단한 설명 글 작성하기</p>
       <hr>

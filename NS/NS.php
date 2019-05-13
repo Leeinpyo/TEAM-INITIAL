@@ -170,7 +170,7 @@ session_start();
 		</nav>
 	</div>
 	<div id="contents" class="cf">
-			<img src="images/room2.png" alt="" />
+			<img src="images/ns.png" alt="" />
 			<section id="work" class="cf">
 				<img src="../images/1.jpg" id="big"  class="BigImg"/>
 <br /><br />

@@ -118,7 +118,7 @@
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/masterlogin.png" alt="" />
 				<p>&nbsp;아이디와 패스워드를 입력해 주십시오.</p>
 				<form action="" method="post">
 					<dl class="tbl_layout">

@@ -127,7 +127,7 @@ if(isset($_SESSION['id']) || isset($_SESSION['name']))
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/signup.png" alt="" />
 				<p>&nbsp;필요사항을 입력하고 마지막으로 [회원가입]을 눌러 주십시오.</p>
 				<form action="signup_proc.php" method="post">
 					<dl class="tbl_layout">

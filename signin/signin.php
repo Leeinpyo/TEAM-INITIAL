@@ -128,7 +128,7 @@ if(isset($_SESSION['id']) || isset($_SESSION['name']))
 
 
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/login.png" alt="" />
 				<p>&nbsp;아이디와 패스워드를 입력해 주십시오.</p>
 				<form action="signin_proc.php" method="post">
 					<dl class="tbl_layout">
