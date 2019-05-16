@@ -164,7 +164,7 @@ session_start();
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/LoadMap.png" alt="" class="textimg" />
 				<div class="mapbox">
 					<table class="Nmap" cellpadding="0" cellspacing="0">
 					<tr class="maps">

@@ -164,7 +164,7 @@ session_start();
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/notice.png" alt="" />
 			</section>
 			<div class="boximg_1">
 				<table class="tc">

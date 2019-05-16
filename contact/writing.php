@@ -165,7 +165,7 @@ session_start();
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/contact.png" alt="" />
 
 
         <form action=writing_proc.php method=post>

@@ -202,7 +202,7 @@ $current_page = floor($no/$page_size);
 	</div>
 	<div id="contents" class="cf">
 			<section id="content" class="cf">
-				<img src="images/room2.png" alt="" />
+				<img src="images/contact.png" alt="" />
 			</section>
 			<div class="boximg_1">
 				<table class="tc">
