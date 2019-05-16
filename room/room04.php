@@ -9,9 +9,9 @@
 <br />
 <div id="roomsub">
 	<div class="topbox">
-		<input type=button value="예약하기"  OnClick="location='reservation.php'"/>
+		<input type=button value="예약하기"  OnClick="location='reservation.php?R=4'"/>
 		<img src="images/icon_room4.png" alt="icon_room4.png">
-	</div>	
+	</div>
 	<div class="subbox">
 		<img src="images/room4.jpg" alt="room1">
 		<table>

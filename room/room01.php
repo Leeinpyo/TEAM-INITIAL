@@ -9,7 +9,7 @@
 <br />
 <div id="roomsub">
 	<div class="topbox">
-		<input type=button value="예약하기"  OnClick="location='reservation.php'"/>
+		<input type=button value="예약하기"  OnClick="location='reservation.php?R=1'"/>
 		<img src="images/icon_room1.png" alt="icon_room1.png"  >
  	</div>
 	<div class="subbox">
@@ -46,7 +46,7 @@
 				<th>300,000</th>
 			</tr>
 		</table>
-	</div>	
+	</div>
 </div>
 <div id="roominfo">
 		<p>위 금액은 기본인원 금액이며 인원 추가시 1인당 20,000원입니다. </p>

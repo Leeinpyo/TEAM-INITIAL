@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+//---- 선택된 룸 넘버
+$roomnum=$_GET['R'];
+
 //---- 오늘 날짜
 $thisyear = date('Y'); // 4자리 연도
 $thismonth = date('n'); // 0을 포함하지 않는 월
@@ -48,20 +53,20 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 	<title>풀빌라1</title>
     <link rel="stylesheet" href="css/reservation.css">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
         $(document).ready(function () {
             $("a").each(function () {
                 $(this).click(function () {
-                    $(this).addClass("Select");        
+                    $(this).toggleClass("Select");
                     $(this).siblings().removeClass("Select");                });
             });
         });
-    </script>
+    </script> -->
 </head>
 <body>
 <br />
 <div id="reservation">
-	<h2>room1 예약</h2>
+	<h2>room<?=$roomnum?> 예약</h2>
 	<div id="Day">
 		<div class="month">
 			<ul>
@@ -71,14 +76,14 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 			<?php } ?>
 
 			<?php if( $prev_year >= $thisyear && $prev_month >= $thismonth ){ ?>
-				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
 			<?php } ?>
 
 			<?php if( $prev_year > $thisyear && $prev_month < $thismonth ){ ?>
-				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
 			<?php } ?>
 
-				<li class="next"><input type="button" onclick="<?php echo "location.href='reservation.php?year=$next_year&month=$next_month&day=1';" ?>" value="&#10095;"></li>
+				<li class="next"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$next_year&month=$next_month&day=1';" ?>" value="&#10095;"></li>
 				<li>
 					<?=$month?>월<br><!-- 월 -->
 					<span class="year"><?=$year?></span><!-- 년 -->
@@ -115,13 +120,13 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 
 
 									if ($j == 0){
-										echo "<li class=\"Mo\"><a>";
+										echo "<li class=\"Mo\"><a";
 									} else {
-										echo "<li><a>";
+										echo "<li><a";
 									}
 
 									if ((($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
-										echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "&nbsp;&nbsp;&nbsp;";
 									}
 
 
@@ -140,18 +145,22 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 					            // 12. 오늘 날짜
 											if ($year == $thisyear && $month == $thismonth && $day == date("j")) {
 					                if ($day > 0 && $day < 10){
-														echo "&nbsp;$day&nbsp;";
+
+														echo " class=\"today\">&nbsp;$day&nbsp;";
+
 													} else {
-														echo "$day";
+
+														echo " class=\"today\">$day"; //오늘 날짜 초록색 하이라이트
+
 													}
 
 
 					            } else {
 											// 13. 이 외 날짜 출력
 													if ($day > 0 && $day < 10){
-														echo "&nbsp;$day&nbsp;";
+														echo ">&nbsp;$day&nbsp;";
 													} else {
-														echo "$day";
+														echo ">$day";
 													}
 					            }
 					            // 14. 날짜 증가
@@ -171,10 +180,13 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 		</div>
 	</div>
 	<div id="Pay">
+
+<form action=reservation_proc.php?R=<?=$roomnum?> method=post>
+
 		<div class="Rtype">
 			<ul>
 				<li><span>객실명</span>
-					<br/> Room1
+					<br/> Room<?=$roomnum?>
 				</li>
 				<li><span>요금</span>
 					<br/> 000000원
@@ -184,21 +196,21 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 		<div class="checkIn">
 			<ul>
 				<li><span>체크인</span>
-					<select name="year">
+					<select name="in_year">
 						<?php
-							for($i=2019; $i<=2020; $i++){
+							for($i=$thisyear; $i<=$thisyear+4; $i++){ //현재 년도+4 까지만 출력
 									echo "<option value=\"$i\">$i</option>";
 								}
 						?>
 					</select>
-					<select name="month">
+					<select name="in_month">
 						<?php
 							for($i=1; $i<=12; $i++){
 									echo "<option value=\"$i\">$i</option>";
 								}
 						?>
 					</select>
-					<select name="day">
+					<select name="in_day">
 						<?php
 							for($i=1; $i<=31; $i++){
 									echo "<option value=\"$i\">$i</option>";
@@ -207,21 +219,21 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 					</select>
 				</li>
 				<li><span>체크아웃</span>
-					<select name="year">
+					<select name="out_year">
 						<?php
-							for($i=2019; $i<=2020; $i++){
+							for($i=$thisyear; $i<=$thisyear+4; $i++){
 									echo "<option value=\"$i\">$i</option>";
 								}
 						?>
 					</select>
-					<select name="month">
+					<select name="out_month">
 						<?php
 							for($i=1; $i<=12; $i++){
 									echo "<option value=\"$i\">$i</option>";
 								}
 						?>
 					</select>
-					<select name="day">
+					<select name="out_day">
 						<?php
 							for($i=1; $i<=31; $i++){
 									echo "<option value=\"$i\">$i</option>";
@@ -230,21 +242,30 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 					</select>
 				</li>
 				<li><span>인원</span>
-					<select name="personnel">
-						<?php
-						  {
-							echo "<option value=\"0\">1</option>";
-							echo "<option value=\"1\">2</option>";
-							echo "<option value=\"2\">3</option>";
-							echo "<option value=\"3\">4</option>";
-							echo "<option value=\"4\">5</option>";
-							echo "<option value=\"5\">6</option>";
-							echo "<option value=\"6\">7</option>";
-							echo "<option value=\"7\">8</option>";
-							echo "<option value=\"8\">9</option>";
-							echo "<option value=\"9\">10</option>";
-						  }
-						?>
+					<select name="person">
+            <?php
+            if ($roomnum==1) {
+              for($i=2; $i<=4; $i++){
+                  echo "<option value=\"$i\">$i</option>";
+                }
+            }
+            else if ($roomnum==2) {
+              for($i=8; $i<=10; $i++){
+                  echo "<option value=\"$i\">$i</option>";
+                }
+            }
+            else if ($roomnum==3) {
+              for($i=2; $i<=4; $i++){
+                  echo "<option value=\"$i\">$i</option>";
+                }
+            }
+            else if ($roomnum==4) {
+              for($i=2; $i<=3; $i++){
+                  echo "<option value=\"$i\">$i</option>";
+                }
+            }
+
+            ?>
 					</select>
 				</li>
 				<li class="total"><span>총 금액</span>
@@ -252,7 +273,10 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 				</li>
 			</ul>
 		</div>
-		<input class="reservationbtn" type="button" value="예약">
+		<input class="reservationbtn" type="submit" value="예약">
+
+</form>
+
 	</div>
 </div>
 </body>
