@@ -30,6 +30,7 @@ ul {list-style-type: none;}
 .Select {color:#FF2626 !important; border:1px dashed #FF0000;}
 .reservation {background:#73DCFF; color:#FFFFF2 !important;}
 .Closed{background:#FFB299; color:#FFFFF2 !important;}
+.today {color:#085c1b !important; border:1px dashed #085c1b;}
 
 .Mo{margin-left:-10px;}
 
@@ -45,7 +46,7 @@ ul {list-style-type: none;}
 .total {margin-top:20px;}
 
 
-/*PC´ë»ó ¹× ´ëÇü ÅÂºí¸´ ´ë»ó ·¹ÀÌ¾Æ¿ô :769px¢¦960px*/
+/*PC :769pxï¿½ï¿½960px*/
 @media only screen and (min-width: 769px) {
 #Day{width:50%; height:500PX; float:left;}
 #Pay{width:50%; height:500PX; float:left;}
@@ -58,5 +59,3 @@ ul {list-style-type: none;}
 .checkIn{float:right; width:90%;}
 
 .reservationbtn{float:right; width:90%;}
-
-
