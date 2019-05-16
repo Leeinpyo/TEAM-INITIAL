@@ -35,7 +35,6 @@ if($id && $pass)
     $_SESSION['id'] = $id; // "변수$id의 값"을 "세션 id"에 집어넣는다.
     $_SESSION['name'] = $name[name]; // "세션 name"에 "변수 $name"에 있는 값 중 "컬럼 name" 안에 있는 값을 집어넣는다.
     echo "You send this value to database. <br><b>ID :</b> ".$id."<br><b>PASSWORD :</b> ".$pass."<br><br>";
-    echo "You got this value from database. <br><b>NAME :</b> ".$name[name]."<br>";
     echo "<script>alert('로그인 성공.'); </script> <br><br> $id 으로 로그인됨 <b><br><br>=== ACCESS GRENTED ===</b>" ;
     echo "<b><br><br>3초후 메인페이지로 이동합니다</b><meta http-equiv='refresh' content='3;url=../index.php'>";
   }
