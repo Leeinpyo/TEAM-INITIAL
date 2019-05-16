@@ -25,7 +25,7 @@ if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
   $contact_id=mysqli_insert_id($db);
 
   echo "<b>문의_번호 (contact_id) :</b> ".$contact_id."<br>";
-  echo "<b><br><br>3초후 메인페이지로 이동합니다</b><meta http-equiv='refresh' content='3;url=read.php?id=$contact_id'>";
+  echo "<b><br><br>2초후 작성한 글로 이동합니다</b><meta http-equiv='refresh' content='2;url=read.php?id=$contact_id'>";
 
 }
 //회원
@@ -50,7 +50,7 @@ if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
   $contact_id=mysqli_insert_id($db);
 
   echo "<b>문의_번호 (contact_id) :</b> ".$contact_id."<br>";
-  echo "<b><br><br>3초후 메인페이지로 이동합니다</b><meta http-equiv='refresh' content='3;url=read.php?id=$contact_id'>";
+  echo "<b><br><br>2초후 작성한 글로 이동합니다</b><meta http-equiv='refresh' content='2;url=read.php?id=$contact_id'>";
 
 }
 
