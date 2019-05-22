@@ -27,12 +27,16 @@ ul {list-style-type: none;}
   text-decoration: none; cursor:default;}
 .days li a:hover {color:#FF2626; cursor:pointer; border:1px dashed #FF0000;}
 
-.Select {color:#FF2626 !important; border:1px dashed #FF0000;}
+.sunday {color:#FF2626 !important;}
+
+.sundaytoday {color:#FF2626 !important; border:1px dashed #085c1b;}
+.Select {border:1px dashed #FF0000;}
+.today {border:1px dashed #085c1b;}
 .reservation {background:#73DCFF; color:#FFFFF2 !important;}
 .Closed{background:#FFB299; color:#FFFFF2 !important;}
-.today {color:#085c1b !important; border:1px dashed #085c1b;}
 
-.Mo{margin-left:-10px;}
+
+.Mo{margin-left:-10px; color:#FF2626 !important;}
 
 .Rtype{float:left; width:100%; background:#999999; font-size:1.2em; }
 .Rtype ul li{width:90%; height:50px; float:left; color:#ffffff; text-align:center;}

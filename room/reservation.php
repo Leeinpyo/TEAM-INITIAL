@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$db = mysqli_connect("localhost","guest","gamesoft","hotel");
+
 //---- 선택된 룸 넘버
 $roomnum=$_GET['R'];
 
@@ -131,20 +133,48 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 
 
 
-
 					        if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
+
+                      if(mysqli_num_rows(mysqli_query($db,"SELECT * FROM `book_dates` WHERE book_date = '$year/$month/$day' AND book_room = '$roomnum' ;"))!=0)
+                      {
+                        echo " class=\"reservation\" ";// 현재 방 번호 중에 예약 날짜 DB "book_date" 에서 불러와서 표시
+                      }
+
+                      else
+
+                      /*
+                      if ($day == 5 && $month == 5) {
+                        echo " class=\"Closed\" ";// 미완성
+                      }
+                      else
+                      */
 
 					            if ($j == 0) {
 					                // 9. $j가 0이면 일요일
+                          if ($year == $thisyear && $month == $thismonth && $day == date("j")) {
+    					                if ($day > 0 && $day < 10){
+                                //일요일이 오늘일때
+                              }
+                        }else
+                        echo " class=\"sunday\" ";
+                        //일요일 빨강으로
 					            } else if ($j == 6) {
 					                // 10. $j가 0이면 토요일
+
 					            } else {
 					                // 11. 그외는 평일
+
 					            }
 
 					            // 12. 오늘 날짜
 											if ($year == $thisyear && $month == $thismonth && $day == date("j")) {
 					                if ($day > 0 && $day < 10){
+
+                            if ($j == 0) {
+      					                //일요일이 오늘일때
+                                echo " class=\"sundaytoday\"> ";
+
+      					            } else
 
 														echo " class=\"today\">&nbsp;$day&nbsp;";
 
