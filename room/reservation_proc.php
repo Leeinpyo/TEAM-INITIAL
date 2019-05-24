@@ -42,7 +42,21 @@ if ($roomnum&&$in_year&&$in_month&&$in_day&&$out_year&&$out_month&&$out_day&&$pe
       if($new_date == $date2) break;
     }
 
-    echo "<script>alert('예약 성공'); </script>"; // 날짜 등록
+    echo "<script>alert('예약 성공'); </script>"; // 날짜 등록 완료 메세지
+
+    if(isset($_SESSION['id']) || isset($_SESSION['name'])){
+      echo "<b><br><br>=== LOGIN MEMBER USER ACCESS DETECTED ===</b>";
+      // 회원
+    }
+    elseif ((!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+      echo "<b><br><br>=== NON-MEMBER USER ACCESS DETECTED ===</b>";
+      // 비회원
+    }
+    else {
+      echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED ===</b>";
+      // 세션이 뭔가 잘못됬습니다요 나으리
+    }
+
   }
   else
   {
@@ -54,5 +68,12 @@ else
 {
   echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED ===</b>"; //기타 부정한 방법으로써의 접근 차단 및 쓸모없는 데이터가 저장되는 것을 방지함
 }
+
+
+
+
+
+
+
 
 ?>
