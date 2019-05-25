@@ -120,15 +120,15 @@
 			<section id="content" class="cf">
 				<img src="images/masterlogin.png" alt="" />
 				<p>&nbsp;아이디와 패스워드를 입력해 주십시오.</p>
-				<form action="" method="post">
+				<form action="master_proc.php" method="post">
 					<dl class="tbl_layout">
 						<dt>아이디</dt>
 						<dd>
-							<input type="text" placeholder="아이디 입력" required="required" class="w300" name="u_name" id="u_name"/>
+							<input type="text" placeholder="아이디 입력" required="required" class="w300" name="u_id" id="u_id"/>
 						</dd>
 						<dt>패스워드</dt>
 						<dd>
-							<input type="text" placeholder="패스워드 입력" required="required" class="w300" name="u_group" id="u_group"/>
+							<input type="password" placeholder="패스워드 입력" required="required" class="w300" name="u_pass" id="u_pass"/>
 						</dd>
 					</dl>
 					<br>
