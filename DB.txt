@@ -1,0 +1,144 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- member Table Create SQL
+CREATE TABLE member
+(
+    `member_num`  INT(11)        NOT NULL    AUTO_INCREMENT COMMENT '회원_번호', 
+    `id`          VARCHAR(11)    NOT NULL    COMMENT '아이디', 
+    `pass`        VARCHAR(45)    NOT NULL    COMMENT '패스워드', 
+    `name`        VARCHAR(11)    NOT NULL    COMMENT '이름', 
+    `age`         INT(4)         NOT NULL    COMMENT '생일_년', 
+    `mon`         INT(2)         NOT NULL    COMMENT '생일_월', 
+    `day`         INT(2)         NOT NULL    COMMENT '생일_일', 
+    `gender`      TINYINT(1)     NOT NULL    COMMENT '성별', 
+    `tel`         BIGINT(13)     NOT NULL    COMMENT '전화번호', 
+    `email`       VARCHAR(45)    NOT NULL    COMMENT '이메일', 
+    PRIMARY KEY (member_num, id)
+);
+
+ALTER TABLE member COMMENT '회원';
+
+
+-- book_admin Table Create SQL
+CREATE TABLE book_admin
+(
+    `book_num`         BIGINT     NOT NULL    AUTO_INCREMENT COMMENT '예약_번호', 
+    `id`               INT(11)    NULL        COMMENT '회원_번호', 
+    `book_room`        INT        NOT NULL    COMMENT '예약_방', 
+    `book_date_start`  DATE       NOT NULL    COMMENT '예약_날짜_시작', 
+    `book_date_end`    DATE       NOT NULL    COMMENT '예약_날짜_끝', 
+    PRIMARY KEY (book_num)
+);
+
+ALTER TABLE book_admin COMMENT '예약페이지_관리자';
+
+ALTER TABLE book_admin
+    ADD CONSTRAINT FK_book_admin_id_member_member_num FOREIGN KEY (id)
+        REFERENCES member (member_num) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- book_member Table Create SQL
+CREATE TABLE book_member
+(
+    `book_num`         BIGINT     NOT NULL    COMMENT '예약_번호', 
+    `member_num`       INT(11)    NOT NULL    COMMENT '회원_번호', 
+    `book_room`        INT        NOT NULL    COMMENT '예약_방', 
+    `book_date_start`  DATE       NOT NULL    COMMENT '예약_날짜_시작', 
+    `book_date_end`    DATE       NOT NULL    COMMENT '예약_날짜_끝', 
+    PRIMARY KEY (book_num)
+);
+
+ALTER TABLE book_member COMMENT '예약페이지_회원';
+
+ALTER TABLE book_member
+    ADD CONSTRAINT FK_book_member_book_num_book_admin_book_num FOREIGN KEY (book_num, book_room, book_date_start, book_date_end)
+        REFERENCES book_admin (book_num, book_room, book_date_start, book_date_end) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE book_member
+    ADD CONSTRAINT FK_book_member_member_num_member_member_num FOREIGN KEY (member_num)
+        REFERENCES member (member_num) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- book_non_member Table Create SQL
+CREATE TABLE book_non_member
+(
+    `book_num`           BIGINT         NOT NULL    COMMENT '예약_번호', 
+    `non_member_name`    VARCHAR(11)    NOT NULL    COMMENT '비회원_이름', 
+    `non_member_age`     INT(4)         NOT NULL    COMMENT '비회원_생일_년', 
+    `non_member_mon`     INT(2)         NOT NULL    COMMENT '비회원_생일_월', 
+    `non_member_day`     INT(2)         NOT NULL    COMMENT '비회원_생일_일', 
+    `non_member_gender`  TINYINT(1)     NOT NULL    COMMENT '비회원_성별', 
+    `non_member_tel`     BIGINT(13)     NOT NULL    COMMENT '비회원_전화번호', 
+    `non_member_email`   VARCHAR(45)    NOT NULL    COMMENT '비회원_이메일', 
+    `book_room`          INT            NOT NULL    COMMENT '예약_방', 
+    `book_date_start`    DATE           NOT NULL    COMMENT '예약_날짜_시작', 
+    `book_date_end`      DATE           NOT NULL    COMMENT '예약_날짜_끝', 
+    PRIMARY KEY (book_num)
+);
+
+ALTER TABLE book_non_member COMMENT '예약페이지_비회원';
+
+ALTER TABLE book_non_member
+    ADD CONSTRAINT FK_book_non_member_book_num_book_admin_book_num FOREIGN KEY (book_num, book_room, book_date_start, book_date_end)
+        REFERENCES book_admin (book_num, book_room, book_date_start, book_date_end) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- board_notice Table Create SQL
+CREATE TABLE board_notice
+(
+    `notice_id`      BIGINT         NOT NULL    AUTO_INCREMENT COMMENT '공지_번호', 
+    `notice_select`  TINYINT(5)     NULL        COMMENT '공지_유형선택', 
+    `notice_title`   VARCHAR(70)    NULL        COMMENT '공지_제목', 
+    `notice_name`    VARCHAR(11)    NULL        COMMENT '공지_글쓴이', 
+    `notice_pass`    VARCHAR(45)    NULL        COMMENT '공지_비밀번호', 
+    `notice_text`    TEXT           NULL        COMMENT '공지_본문', 
+    `notice_wdate`   DATETIME       NULL        COMMENT '공지_날짜', 
+    `notice_see`     INT(11)        NULL        COMMENT '공지_조회수', 
+    PRIMARY KEY (notice_id)
+);
+
+ALTER TABLE board_notice COMMENT '게시판_공지';
+
+
+-- board_contact Table Create SQL
+CREATE TABLE board_contact
+(
+    `contact_id`      BIGINT         NOT NULL    AUTO_INCREMENT COMMENT '문의_번호', 
+    `contact_select`  TINYINT(5)     NULL        COMMENT '문의_유형선택', 
+    `contact_title`   VARCHAR(70)    NULL        COMMENT '문의_제목', 
+    `contact_name`    VARCHAR(11)    NULL        COMMENT '문의_글쓴이', 
+    `contact_pass`    VARCHAR(45)    NULL        COMMENT '문의_비밀번호', 
+    `contact_text`    TEXT           NULL        COMMENT '문의_본문', 
+    `contact_wdate`   DATETIME       NULL        COMMENT '문의_날짜', 
+    `contact_see`     INT(11)        NULL        COMMENT '문의_조회수', 
+    `contact_ip`      VARCHAR(16)    NULL        COMMENT '문의_아이피', 
+    `contact_answer`  TEXT           NULL        COMMENT '문의_답변', 
+    PRIMARY KEY (contact_id)
+);
+
+ALTER TABLE board_contact COMMENT '게시판_문의사항';
+
+
+-- book_dates Table Create SQL
+CREATE TABLE book_dates
+(
+    `book_date_num`  INT     NOT NULL    AUTO_INCREMENT COMMENT '예약_날짜_번호', 
+    `book_date`      DATE    NULL        COMMENT '예약_날짜', 
+    `book_room`      INT     NULL        COMMENT '예약_방', 
+    PRIMARY KEY (book_date_num)
+);
+
+ALTER TABLE book_dates COMMENT '예약_날짜들';
+
+
+-- admin Table Create SQL
+CREATE TABLE admin
+(
+    `admin_id`    VARCHAR(11)    NOT NULL    COMMENT '아이디', 
+    `admin_pass`  VARCHAR(45)    NOT NULL    COMMENT '패스워드', 
+    PRIMARY KEY (admin_id)
+);
+
+ALTER TABLE admin COMMENT '관리자';
+
+
