@@ -124,10 +124,23 @@ session_start();
 					</a>
 				</li>
 
+        <?php
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
+        ?>
 
+        </li>
+        <li class="menu">
+        <a href="signin/signin.php" onfocus="blur()">
+          <img src="icon/icon_login2.png" />
+        </a>
+        </li>
 
         <?php
-        if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+        }
+        ?>
+
+        <?php
+        if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {
         ?>
 
       </li>
@@ -139,7 +152,7 @@ session_start();
 
         <?php
         }
-        if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && !isset($_SESSION['admin'])) {
         $id = $_SESSION['id'];
         $name = $_SESSION['name'];
         ?>
