@@ -1,0 +1,23 @@
+#contents{width:100%;}
+
+#roomB {width:100%;float:right;}
+
+button{
+	margin:10px auto; 
+}
+
+#my_frame{width:100%; height:700px;  margin:auto; border:2px solid #999999; margin-bottom:20px;}
+
+
+/*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
+@media only screen and (min-width: 769px) {
+
+#my_frame{width:100%;}
+
+
+/* min-width: 769px */
+
+/*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
+@media only screen and (min-width: 961px) {
+
+#my_frame{width:100%;}
