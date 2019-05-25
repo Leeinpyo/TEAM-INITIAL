@@ -28,36 +28,68 @@ $person = $_POST['person']; //인원
 
 if ($roomnum&&$in_year&&$in_month&&$in_day&&$out_year&&$out_month&&$out_day&&$person) {
   // 모든 값이 입력되어 넘어옴
-  if (mysqli_num_rows(mysqli_query($db,"SELECT * FROM `book_dates` WHERE book_date >='$in_year/$in_month/$in_day' AND book_date <='$out_year/$out_month/$out_day' AND book_room = '$roomnum';"))==0) {
-    // 입력된 방 값 중에서 입력된 날짜 범위가 이미 사용중인지 확인
 
-    $date1 = "$in_year-$in_month-$in_day";
-    $date2 = "$out_year-$out_month-$out_day";
 
-    $new_date = date("Y-m-d", strtotime("-1 day", strtotime($date1)));
+  $date1 = "$in_year-$in_month-$in_day";
+  $date2 = "$out_year-$out_month-$out_day";
 
-    while(true) {
-      $new_date = date("Y-m-d", strtotime("+1 day", strtotime($new_date)));
-      $sql_save = mysqli_query($db,"INSERT INTO `book_dates` (`book_date`, `book_room`) VALUES ('$new_date','$roomnum');");
-      if($new_date == $date2) break;
-    }
+  $in = date("Y-m-d", strtotime("-1 day", strtotime($date1)));
+  $out = date("Y-m-d", strtotime($date2));
 
-    echo "<script>alert('예약 성공'); </script>"; // 날짜 등록 완료 메세지
 
-    if(isset($_SESSION['id']) || isset($_SESSION['name'])){
-      echo "<b><br><br>=== LOGIN MEMBER USER ACCESS DETECTED ===</b>";
-      // 회원
-    }
-    elseif ((!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
-      echo "<b><br><br>=== NON-MEMBER USER ACCESS DETECTED ===</b>";
-      // 비회원
-    }
-    else {
-      echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED ===</b>";
-      // 세션이 뭔가 잘못됬습니다요 나으리
-    }
-
+  if ($in >= $out) {                                                    // 체크아웃 날짜가 체크인 날짜보다 빠를경우
+  echo "<b><br><br>=== ACCESS DENIED : WRONG INPUT VALUE ===</b>";
+  echo "<script>alert('올바르지 않은 체크아웃 날짜입니다.'); </script>";
   }
+  else
+
+  if (mysqli_num_rows(mysqli_query($db,"SELECT * FROM `book_dates` WHERE book_date >='$in_year-$in_month-$in_day' AND book_date <='$out_year-$out_month-$out_day' AND book_room = '$roomnum';"))==0) {
+    // 입력된 방 값 중에서 입력된 날짜 범위가 book_dates에서 이미 사용중인지 확인
+
+    echo "<b><br><br>=== INPUT VALUE CONTRASTING ===</b>";
+
+    if (isset($_SESSION['id']) || isset($_SESSION['name'])){
+      echo "<b><br><br>=== LOGIN MEMBER USER ACCESS DETECTED ===</b>";
+      // 회원상태 체크됨
+
+      $new_date = date("Y-m-d", strtotime("-1 day", strtotime($date1)));  // 여기부터 로그인/비로그인 공통으로 book_dates에 저장되는 부분
+      $end_date = date("Y-m-d", strtotime($date2));
+
+      while(true) {
+        if($new_date >= $end_date)  break ;
+        $new_date = date("Y-m-d", strtotime("+1 day", strtotime($new_date)));
+        $sql_save = mysqli_query($db,"INSERT INTO `book_dates` (`book_date`, `book_room`) VALUES ('$new_date','$roomnum');");
+        if($new_date == $end_date)  break ;
+        } // 완료
+
+        echo "<script>alert('예약 성공'); history.back(-1); </script>"; // 날짜 등록 완료 메세지
+
+      }
+
+    else if (!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+      echo "<b><br><br>=== NON-MEMBER USER ACCESS DETECTED ===</b>";
+      // 비회원상태 체크됨
+
+      $new_date = date("Y-m-d", strtotime("-1 day", strtotime($date1)));  // 여기부터 로그인/비로그인 공통으로 book_dates에 저장되는 부분
+      $end_date = date("Y-m-d", strtotime($date2));
+
+      while(true) {
+        if($new_date >= $end_date)  break ;
+        $new_date = date("Y-m-d", strtotime("+1 day", strtotime($new_date)));
+        $sql_save = mysqli_query($db,"INSERT INTO `book_dates` (`book_date`, `book_room`) VALUES ('$new_date','$roomnum');");
+        if($new_date == $end_date)  break ;
+        } // 완료
+
+        echo "<script>alert('예약 성공'); history.back(-1); </script>"; // 날짜 등록 완료 메세지
+
+      }
+
+      else {
+        echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED : WRONG SESSION ===</b>";
+        // 세션이 뭔가 잘못됬습니다요 나으리
+      }
+
+    }
   else
   {
     echo "<script>alert('이미 예약된 날짜입니다'); history.back(-1); </script>"; // 중복된 날짜 등록 차단
@@ -66,7 +98,7 @@ if ($roomnum&&$in_year&&$in_month&&$in_day&&$out_year&&$out_month&&$out_day&&$pe
 }
 else
 {
-  echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED ===</b>"; //기타 부정한 방법으로써의 접근 차단 및 쓸모없는 데이터가 저장되는 것을 방지함
+  echo "<script>alert('잘못된 접근입니다. 관리자에게 문의해주세요.'); </script> <b><br><br>=== ACCESS DENIED : WRONG APPROACH ===</b>"; //기타 부정한 방법으로써의 접근 차단 및 쓸모없는 데이터가 저장되는 것을 방지함
 }
 
 
