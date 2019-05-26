@@ -1,0 +1,43 @@
+body{
+	margin:0 auto;
+	padding:0;
+	width:90%;
+	background-color:#FFFFFF;
+	font-family:"Nanum Gothic", "나눔고딕", "돋움", Dotum;
+	color:#444444;
+	font-size:0.75em;
+}
+h2{
+	width:100px;
+}
+img{
+	width:100%; 
+}
+ul{list-style-type: none;}
+
+#Minfo{ 
+	width:100%;  display:black; margin-top:10px;  float:right; 
+}
+#Minfo button{
+	width:15%; float:left; height:40px; margin-top:10px; margin-left:7px;
+}
+
+.jeongbo{width:98%; margin:1%;}
+.rooms{width:98%;}
+.rooms p{width:30%; float:left; }
+.rooms input{width:69%;float:left; overflow:auto;}
+
+.rooms textarea{width:100%;float:left; overflow:auto;}
+
+.Jsize{ width:100%; }
+
+#my_frame1{width:100%; height:580px;  margin:auto; border:2px solid #999999; margin-bottom:20px; float:left;}
+
+/*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
+@media only screen and (min-width: 769px) {
+
+
+/* min-width: 769px */
+
+/*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
+@media only screen and (min-width: 961px) {

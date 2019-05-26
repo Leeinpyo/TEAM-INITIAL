@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$Msubnum=$_GET['M'];
+?>
+
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -9,29 +13,20 @@
 <link rel="apple-touch-icon-precomposed" href="../icon57.png">
 <link rel="apple-touch-icon-precomposed" size="114x114" href="../icon114.png">
 <link href="http://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet" />
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/master.css">
-<link rel="stylesheet" href="css/common.css">
-<style type="text/css">@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);</style>
-
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-
 <title>INITIAL MasterLogin</title>
-
-<!--<script src="../js/jquery-1.11.0.min.js">-->
-<script type="text/javascript">
-	$(document).on("click","#insertRv",function(){
-		alert("예약 추가");
-	});
-	$(document).on("click","#updateRv",function(){
-		alert("예약 변경");
-	});
-	$(document).on("click","#cancelRv",function(){
-		alert("예약 취소");
-	});
-</script>
-    
+<script src="../js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mpage.css">
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    </style>
+	
+	<script>
+	function open_in_frame(url) {
+	$('#my_frame').attr('src', url);
+	}
+	</script>
 </head>
 
 <body>
@@ -131,24 +126,36 @@
 			</ul>
 			</nav>
 	</div>
-	<div class="cntntsView">
-		<div class="leftMenuDiv">
-			<ul class="lftM">
-				<li><a href="/masterlogin/master.php">예약 현황</a></li>
-				<li class="on"><a href="/masterlogin/subPage.php">입실/퇴실 관리</a></li>
-				<li><a href="#none">시설정보 등록</a></li>
-				<li><a href="#none">공지사항 관리</a></li>
-				<li><a href="#none">문의사항 관리</a></li>
-			</ul>
-		</div>
-		<div class="cnttns">
-			asdsadasdsad
-		</div>
-		<div class="btnDiv ac">
-			<button type="button" class="btn btn_gry" id="insertRv">예약 추가</button>
-			<button type="button" class="btn btn_gry" id="updateRv">예약 변경</button>
-			<button type="button" class="btn btn_gry" id="cancelRv">예약 취소</button>
-		</div>
+	<div id="contents" class="cf">
+			<section id="content" class="cf">
+				<div class="Mpage">
+					<div class="MButton">
+						<button type="button" onclick='open_in_frame("Msub01.php")' class="btn " >예약 현황</button>
+						<button onclick='open_in_frame("Msub02.php")' class="btn ">입실/퇴실 관리</button>
+						<button onclick='open_in_frame("Msub03.php")' class="btn ">시설정보 등록</button>
+						<button onclick='open_in_frame("Msub04.php")' class="btn ">공지사항 관리</button>
+						<button onclick='open_in_frame("Msub05.php")' class="btn ">문의사항 관리</button>
+					</div>
+				
+				<?php if ($Msubnum==1) {
+				  echo "<iframe id='my_frame' src=\"Msub01.php\" ></iframe>";
+				} ?>
+				<?php if ($Msubnum==2) {
+				  echo "<iframe id='my_frame' src=\"Msub02.php\" ></iframe>";
+				} ?>
+				<?php if ($Msubnum==3) {
+				  echo "<iframe id='my_frame' src=\"Msub03.php\" ></iframe>";
+				} ?>
+				<?php if ($Msubnum==4) {
+				  echo "<iframe id='my_frame' src=\"Msub04.php\" ></iframe>";
+				} ?>
+				<?php if ($Msubnum==5) {
+				  echo "<iframe id='my_frame' src=\"Msub05.php\" ></iframe>";
+				} ?>
+				<?php if (!($Msubnum>=1 && $Msubnum<=5)) {
+				  echo "<iframe id='my_frame' src=\"Msub01.php\" '></iframe>";
+				} ?>
+				</div>
 			</section>
 
 		</div><!-- id="contents" -->

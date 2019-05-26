@@ -1,0 +1,46 @@
+body{
+	margin:0 auto;
+	padding:0;
+	width:90%;
+	background-color:#FFFFFF;
+	font-family:"Nanum Gothic", "나눔고딕", "돋움", Dotum;
+	color:#444444;
+	font-size:0.75em;
+}
+h2{
+	width:100px;
+}
+img{
+	width:100%; 
+}
+ul{list-style-type: none;}
+
+#Minfo{ 
+	width:100%;  display:black; margin-top:10px;  float:right; 
+}
+#Minfo button{
+	width:15%; float:right; height:40px;
+}
+
+.yeyag{width:98%; height:500px; margin:1%; overflow:auto;}
+
+.yeyaglist{width:90%; font-size:1.5em; float:left; border:1px solid ;}
+.yeyaglist:hover{border:1px solid #B30000;}
+
+/*클릭 활성화*/
+.YLclick{border:1px solid #D90000; background:#DDDDDD; }
+
+/*입실완료*/
+.wanlyo{background:#DCE9D6; color:#666666;}
+
+.yeyaglist li{width:45%; float:left; margin:5px;}
+
+
+/*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
+@media only screen and (min-width: 769px) {
+
+
+/* min-width: 769px */
+
+/*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
+@media only screen and (min-width: 961px) {

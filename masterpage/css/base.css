@@ -1,0 +1,162 @@
+﻿/*  모든 디바이스 공통 스타일과 스마트 폰 및 소형 태블릿 대상 레이아웃 지정*/
+/* body*/
+@charset "utf-8";
+body{
+	width:100%; background:#ffffff;
+	font-family: "Nanum Gothic", "나눔고딕", "돋움", Dotum, sans-serif;
+	color:#000000;
+}
+
+#stage{position:relative; top:0; margin:0; padding:0; background: #000000; }
+a{color:#FFFFFF; text-decoration:none;}
+a:hover{color:#ffffff; text-decoration:underline;}
+.ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+header ul#s_nav_fake label{display:none;}
+
+#submenu {width:100%; height:50px; background:#000000; display:none;}
+ul#sub_nav{position:fixed; width:100%; float:left; height:50px;background:#000000; }
+ul#sub_nav li{text-align:center; float:left; position:relative; top:30px; left:60%; }
+ul#sub_nav li a{font-size:0.7em; width:100%; display:block; margin-right:5px; padding-left:5px; padding-right:0px; }
+
+/* 헤더 스타일*/
+header{width:100%; position:fixed; z-index:1000; overflow:hidden; margin:0 auto; } 
+#header_fake{display:hidden; position:relative; width:100%; overflow:hidden; margin:0 auto; z-index:500;}
+
+header ul#s_nav{margin-top:0px; margin-bottom:0px; /* #s_nav가운데 정렬에 필요 */ position:relative; left:50%; float:left; width:100%;}
+header ul#s_nav li{text-align:center; float:left; position:relative; left:-50%; width:16.667%;}
+header ul#s_nav li a{width:100%; display:block; font-size:0.8em; margin-right:0px; padding-left:0px; padding-right:0px;}
+header ul#s_nav li img{width:100%; height:auto;}
+
+header ul#s_nav_fake{margin-top:0px; margin-bottom:0px; position:relative; left:50%; float:left; width:100%;}
+header ul#s_nav_fake li{text-align:center; float:left; position:relative; left:-50%; width:16.667%;}
+header ul#s_nav_fake li a{width:100%; display:block; font-size:0.8em; margin-right:0px; padding-left:0px; padding-right:0px;}
+header ul#s_nav_fake li img{width:100%; height:auto;}
+
+
+/*글로벌 네비게이션 스타일*/
+nav{display:none;}
+
+
+/*컨텐츠 영역 전체 스타일
+div#contents{
+	padding-bottom:100px;
+	background: #FFFFFF;
+}
+*/
+
+/*페이지 상단으로 가는 버튼 스타일*/
+a#pagetopBtn img{
+	position:fixed; bottom:5%; right:5%; z-index:1500;
+}
+
+
+/*(하단) 푸터 스타일*/
+footer{
+	border-top:10px solid #ffffff;
+	background:#000000;
+}
+footer div{
+	margin:20px 0 0 20px;
+}
+footer .logo_s{
+	color:#FFFFFF; font-size:1em; font-weight:bold;
+	font-family:'Henny Penny', cursive;
+}
+footer div p{
+	font-size:0.7em; line-height:2.0em; color:#FFFFFF;
+}
+footer div small{
+	font-size:0.6em;
+}
+
+
+/*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
+
+@media only screen and (min-width: 769px) {
+header{display:none;} /* 모바일 헤더 숨기기*/
+#submenu{display:block;}
+#submenu ul{padding-top:12px;}
+nav{
+	display:block; text-align:center; 
+	margin:15px auto 10px auto;
+}
+
+nav ul li{
+text-align:center; float:left; width:15%; border-bottom:none;
+}
+
+/* 상단 위치 지정*/
+
+
+nav ul li.s_menu{float:right; width:9%;}
+nav ul li.s_menu a{font-size:0.7em; width:100%;}
+nav ul li.s_menu a:hover{
+	padding-bottom: 5px;
+	border-bottom:1px solid #FFFFFF; 
+}
+
+
+nav ul li.odd{width:14%; border-bottom:none;}
+nav ul li.room{float:right;}
+nav ul li.contact{float:right;}
+nav ul li.Introduction{float:right;}
+nav ul li.NS{float:right;}
+nav ul li.notice{float:right;}
+nav ul li.map{float:right;}
+nav ul li.signin{float:right;}
+nav ul li a{
+	font-weight:bold; text-align:center; display:block;
+	padding:15px 0px 10px 0px;
+	text-decoration:none; text-transform:uppercase; color:#FFFFFF;
+	font-size:1.1em;
+	}
+nav ul li a:hover{
+	padding-bottom: 9px;
+	border-bottom:3px solid #FFFFFF;
+	color:#FFFFFF; text-transform:uppercase; text-decoration:none;
+}
+nav ul li.active{
+	border-bottom:3px solid #FFFFFF;
+	color:#FFFFFF;
+
+}
+nav ul li.ac{
+background-color:#444444;
+	border-bottom:1px solid #FFFFFF;
+
+}
+
+footer{
+	text-align:center;
+	background:#000000;
+}
+/* min-width: 769px */
+/*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
+
+@media only screen and (min-width: 961px) {
+
+#submenu{display:block;}
+#submenu ul{padding-top:12px;}
+
+nav{
+	max-width:960px;
+}
+nav ul{margin-left:auto; margin-right:auto;}
+nav ul li.odd{border-bottom:none;}
+
+
+div#contents{
+	max-width:960px; margin:0 auto;
+}
+div#contents section#news{
+	width:49%; float:left;
+}
+div#contents section#information{
+	width:49%; float:right;
+}
+footer{
+	text-align:center;
+	background:#000000;
+}
+/* min-width: 961px */

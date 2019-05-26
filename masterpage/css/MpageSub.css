@@ -1,0 +1,87 @@
+body{
+	margin:0 auto;
+	padding:0;
+	width:90%;
+	background-color:#FFFFFF;
+	font-family:"Nanum Gothic", "나눔고딕", "돋움", Dotum;
+	color:#444444;
+	font-size:0.75em;
+}
+h2{
+	width:100px;
+}
+img{
+	width:100%; 
+}
+ul{list-style-type: none;}
+
+#Minfo{ 
+	width:100%;  display:black; margin-top:10px;  float:right; 
+}
+#Minfo button{
+	width:15%; float:right; height:40px;
+}
+
+#Day{width:45%; height:300PX; float:left; margin-left:3%;}
+#Pay{width:45%; height:300PX; float:left
+; margin-left:5%;}
+.month {padding:20px 0px; width:100%; background: #777777; text-align:center;}
+.month ul {margin:0; padding:0;}
+.month ul li {color:#ffffff; font-size:20px; text-transform:uppercase; letter-spacing: 3px;}
+
+.month .prev {float:left; padding-top:10px; margin-left:10%;}
+.month .next {float:right; padding-top:10px; margin-right:10%;}
+
+.year{font-size:0.8em;}
+
+#calender{width:100%; height:400px; background:#238C00;  border:2px solid #000000; }
+
+.weekdays {float:left; background-color:#dddddd;  margin:0; width:100%;}
+.weekdays li {display:inline-block; float:left; width:13.5%; height:20px; color:#666666; text-align:center; font-size:15px; }
+
+.days {width:100%; float:left; padding:10px 0; background: #eeeeee; margin: 0;}
+.days li { list-style-type:none; display:inline-block; float:left; width:13%; height:20px; text-align: center; font-size:15px; color:#777777; border:1px solid #FFFFFF; }
+.days li a{padding:0 30% 2px 30%; color:#AAAAAA;
+  text-decoration: none; cursor:default;}
+.days li a:hover {color:#FF2626; cursor:pointer; border:1px dashed #FF0000;}
+
+.sunday {color:#FF2626 !important;}
+
+.sundaytoday {color:#FF2626 !important; border:1px dashed #085c1b;}
+.Select {border:1px dashed #FF0000;}
+.today {border:1px dashed #085c1b;}
+.reservation {background:#73DCFF; color:#FFFFF2 !important;}
+.Closed{background:#FFB299; color:#FFFFF2 !important;}
+
+
+.Mo{margin-left:-10px; color:#FF2626 !important;}
+
+.Rtype{float:left; width:100%; background:#999999; font-size:1.2em; }
+.Rtype ul li{width:90%; height:50px; float:left; color:#ffffff; text-align:center;}
+
+.checkIn{float:left; width:100%; background:#DDDDDD; font-size:1.2em;}
+.checkIn ul{width:90%; margin-top:10px;}
+.checkIn ul li {width:90%; height:30px; text-align:center;}
+
+.reservationbtn{float:left; width:100%; height:50px;}
+
+.total {margin-top:20px;}
+
+
+.yeyag{width:98%; height:200px; margin:1%; overflow:auto;}
+
+.yeyaglist{width:90%; font-size:1.5em; float:left; border:1px solid ;}
+.yeyaglist:hover{border:1px solid #FF2626;}
+.YLclick{border:1px solid #FF2626; background:#DDDDDD;}
+
+.yeyaglist li{width:45%; float:left; margin:5px;}
+
+
+/*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
+@media only screen and (min-width: 769px) {
+
+
+/* min-width: 769px */
+
+/*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
+@media only screen and (min-width: 961px) {
