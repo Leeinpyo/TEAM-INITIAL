@@ -59,10 +59,23 @@ session_start();
 				</li>
 				</li>
 
+        <?php
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
+        ?>
 
+        </li>
+        <li class="menu">
+        <a href="[link here]" onfocus="blur()">
+          <img src="icon/icon_admin2.png" />
+        </a>
+        </li>
 
         <?php
-        if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+        }
+        ?>
+
+        <?php
+        if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {
         ?>
 
       </li>
@@ -74,9 +87,10 @@ session_start();
 
         <?php
         }
-        if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && empty($_SESSION['admin'])) {
         $id = $_SESSION['id'];
         $name = $_SESSION['name'];
+        $admin = $_SESSION['admin'];
         ?>
 
       </li>
@@ -130,7 +144,7 @@ session_start();
 
         </li>
         <li class="menu">
-        <a href="signin/signin.php" onfocus="blur()">
+        <a href="[link here]" onfocus="blur()">
           <img src="icon/icon_login2.png" />
         </a>
         </li>
@@ -152,9 +166,10 @@ session_start();
 
         <?php
         }
-        if(isset($_SESSION['id']) && isset($_SESSION['name']) && !isset($_SESSION['admin'])) {
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && empty($_SESSION['admin'])) {
         $id = $_SESSION['id'];
         $name = $_SESSION['name'];
+        $admin = $_SESSION['admin'];
         ?>
 
       </li>
@@ -178,13 +193,17 @@ session_start();
 
               <?php
 
+              if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
+                echo "<li class=\"s_menu\"><a href=\"index_logout.php\">Logout</a></li>";
+                echo "<li class=\"s_menu\"><a href=\"[link here]\">관리자</a></li>";
+              }
 
-              if(!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+              if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {
                 echo "<li class=\"s_menu\" style=\"display:inline\"><a href=\"signin/signin.php\">LOGIN</a></li>";
                 echo "<li class=\"s_menu\"><a href=\"signup/signup.php\">SIGN UP</a></li>";
               }
 
-              if(isset($_SESSION['id']) || isset($_SESSION['name'])) {
+              if(isset($_SESSION['id']) && isset($_SESSION['name']) && empty($_SESSION['admin'])) {
               $id = $_SESSION['id'];
               $name = $_SESSION['name'];
                 echo "<li class=\"s_menu\"><a href=\"index_logout.php\">Logout</a></li>";
