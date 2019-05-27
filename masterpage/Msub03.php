@@ -18,6 +18,7 @@ $Mroom=$_GET['M'];
 <br /> 
 <div id="Minfo">
 	<div class="jeongbo">
+		<h1>시설정보</h1>
 		<div class="rooms">
 			<div class="MButton">
 				<button type="button" onclick='open_in_frame("Msub03/Mroom1.php")' class="btn btn-outline-dark" >Room1</button>

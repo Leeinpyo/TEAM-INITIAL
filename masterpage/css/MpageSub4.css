@@ -19,16 +19,40 @@ ul{list-style-type: none;}
 	width:100%;  display:black; margin-top:10px;  float:right; 
 }
 #Minfo button{
-	width:15%; float:right; height:40px;
+	width:15%; float:right; height:40px; margin-top:10px;
 }
 
+table.tc{ width:100%;  float:left; }
+.t1{ margin-left:5px; height:40px; /*  margin-top:5px; */ float:left; width:10%; text-align:center; border:none;}
+.t2{ float:left; width:40%; height:40px; text-align:center; /* margin-top:5px; */ border:none; }
+.t2 p{margin-left:30px; text-align:left; overflow: hidden; text-overflow: ellipsis; white-space : nowrap;}
+.t3{float:left; width:15%; height:40px; text-align:center;/*  margin-top:5px;  */border:none; }
+p{ margin-top:10px;}
 
+table.tc thead{height:40px; border-bottom:1px solid #E1E1E1;}
+table.tc thead.g1{ background:#444444; border-top:3px solid #000000;}
+table.tc thead.g1 tr th{color:#FFFFFF;}
+table.tc thead tr th.d01{margin-left:10px;}
+
+/*|???*/
+table.tc tbody tr.g3{background:#FAFAFA;}
+.COver:hover{color:#4000FF;}
+
+div.n1{ width:100%;  float:left;}
+
+div.n{ width:100%; float:right;}
+div.n ul li{float:left; width:15px; height:15px; text-align:center; margin:5px; background:#EEEEEE;}
+div.n ul li a:hover{color:#FF265C;}
+input.test{float:right;}
 
 /*PC대상 및 대형 태블릿 대상 레이아웃 :769px～960px*/
 @media only screen and (min-width: 769px) {
 
-
+}
 /* min-width: 769px */
 
 /*PC대상 레이아웃 지정：961px이상 고정 레이아웃*/
 @media only screen and (min-width: 961px) {
+
+div.n{ width:45%; float:right;}
+}

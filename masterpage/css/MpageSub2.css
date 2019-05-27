@@ -24,7 +24,7 @@ ul{list-style-type: none;}
 
 .yeyag{width:98%; height:500px; margin:1%; overflow:auto;}
 
-.yeyaglist{width:90%; font-size:1.5em; float:left; border:1px solid ;}
+.yeyaglist{width:85%; font-size:1.5em; float:left; border:1px solid ;}
 .yeyaglist:hover{border:1px solid #B30000;}
 
 /*클릭 활성화*/
