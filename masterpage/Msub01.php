@@ -45,6 +45,8 @@ $total_week = ceil(($max_day + $start_week) / 7);
 // 4. 마지막 요일 구하기
 $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 ?>
+
+
 <!DOCTYPE HTML>
 <html lang="ko-KR">
 <head>

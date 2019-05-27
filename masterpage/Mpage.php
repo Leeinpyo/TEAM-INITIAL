@@ -1,5 +1,8 @@
 ﻿<?php
 @session_start();
+
+$Msubnum=$_GET['M']; // ???????
+
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +33,6 @@
 </head>
 
 <body>
-
-  <?php
-  $Msubnum=$_GET['M'];
-  ?>
-
 	<div id="stage">
 
 		<!--모바일 상단-->
@@ -195,7 +193,7 @@
 			<section id="content" class="cf">
 				<div class="Mpage">
 					<div class="MButton">
-						<button type="button" onclick='open_in_frame("Msub01.php")' class="btn " >예약 현황</button>
+						<button type="button" onclick='open_in_frame("Msub01.php?R=1")' class="btn " >예약 현황</button>
 						<button onclick='open_in_frame("Msub02.php")' class="btn ">입실/퇴실 관리</button>
 						<button onclick='open_in_frame("Msub03.php")' class="btn ">시설정보 등록</button>
 						<button onclick='open_in_frame("Msub04.php")' class="btn ">공지사항 관리</button>
@@ -203,7 +201,7 @@
 					</div>
 
 				<?php if ($Msubnum==1) {
-				  echo "<iframe id='my_frame' src=\"Msub01.php\" ></iframe>";
+				  echo "<iframe id='my_frame' src=\"Msub01.php?R=1\" ></iframe>";
 				} ?>
 				<?php if ($Msubnum==2) {
 				  echo "<iframe id='my_frame' src=\"Msub02.php\" ></iframe>";
@@ -218,7 +216,7 @@
 				  echo "<iframe id='my_frame' src=\"Msub05.php\" ></iframe>";
 				} ?>
 				<?php if (!($Msubnum>=1 && $Msubnum<=5)) {
-				  echo "<iframe id='my_frame' src=\"Msub01.php\" '></iframe>";
+				  echo "<iframe id='my_frame' src=\"Msub01.php?R=1\" '></iframe>";
 				} ?>
 				</div>
 			</section>
