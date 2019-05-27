@@ -195,7 +195,7 @@
 				<ul>
 					<li>
 						<h1 class="">아이디</h1>
-						<p class=""><?=$id?>dfgdfdffs</p>
+						<p class=""><?=$id?></p>
 					</li>
 					<li>
 						<h1 class="">비밀번호</h1>
