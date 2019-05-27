@@ -1,12 +1,4 @@
-<?php
-session_start();
 
-if(!isset($_SESSION['id']) || !isset($_SESSION['name']))
-{
-  echo "<script>alert('잘못된 접근입니다.'); history.back(-1); </script>" ; // 로그인 안된 사람 쫒아냄
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,7 +14,7 @@ if(!isset($_SESSION['id']) || !isset($_SESSION['name']))
 <title>INITIAL Introduction</title>
 <script src="../js/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="signin/css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/mypage.css">
     <style type="text/css">
@@ -203,7 +195,7 @@ if(!isset($_SESSION['id']) || !isset($_SESSION['name']))
 				<ul>
 					<li>
 						<h1 class="">아이디</h1>
-						<p class=""><?=$id?></p>
+						<p class=""><?=$id?>dfgdfdffs</p>
 					</li>
 					<li>
 						<h1 class="">비밀번호</h1>

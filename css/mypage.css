@@ -4,6 +4,8 @@
 
 .profile ul{float:left; width:100%;}
 .profile ul li{width:90%; height:20px; float:left; margin-left:5%; margin-top:14px; border-bottom:1px solid #DFDFD0;}
+.profile ul li h1{width:30%; float:left; }
+.profile ul li p{width:60%; float:left;}
 .profile ul input{float:right; margin-right:5%; margin-top:18px;}
 
 .Rroom{width:90%; float:left; margin-top:14px; margin-left:5%;  overflow:auto;}
