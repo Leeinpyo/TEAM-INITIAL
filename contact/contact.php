@@ -99,7 +99,7 @@ $current_page = floor($no/$page_size);
 
         </li>
         <li class="menu">
-        <a href="../[link here]" onfocus="blur()">
+        <a href="../masterpage/Mpage.php" onfocus="blur()">
           <img src="../icon/icon_admin2.png" />
         </a>
         </li>
@@ -188,7 +188,7 @@ $current_page = floor($no/$page_size);
 
                         if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
                           echo "<li class=\"s_menu\"><a href=\"../index_logout.php\">Logout</a></li>";
-                          echo "<li class=\"s_menu\"><a href=\"../[link here]\">관리자</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../masterpage/Mpage.php\">관리자</a></li>";
                         }
 
                         if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {

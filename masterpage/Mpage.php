@@ -1,5 +1,5 @@
 ﻿<?php
-$Msubnum=$_GET['M'];
+@session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $Msubnum=$_GET['M'];
     <style type="text/css">
         @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
     </style>
-	
+
 	<script>
 	function open_in_frame(url) {
 	$('#my_frame').attr('src', url);
@@ -30,6 +30,11 @@ $Msubnum=$_GET['M'];
 </head>
 
 <body>
+
+  <?php
+  $Msubnum=$_GET['M'];
+  ?>
+
 	<div id="stage">
 
 		<!--모바일 상단-->
@@ -60,13 +65,54 @@ $Msubnum=$_GET['M'];
 						<img src="../icon/icon_map2.png" />
 					</a>
 				</li>
-				</li>
-				<li class="menu">
-					<a href="../signin/signin.php" onfocus="blur()">
-						<img src="../icon/icon_login1.png" />
-					</a>
-				</li>
-			</ul>
+
+        <?php
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
+        ?>
+
+        </li>
+        <li class="menu">
+        <a href="../masterpage/Mpage.php" onfocus="blur()">
+          <img src="../icon/icon_admin1.png" />
+        </a>
+        </li>
+
+        <?php
+        }
+        ?>
+
+        <?php
+        if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {
+        ?>
+
+      </li>
+      <li class="menu">
+        <a href="../signin/signin.php" onfocus="blur()">
+          <img src="../icon/icon_login2.png" />
+        </a>
+      </li>
+
+        <?php
+        }
+        if(isset($_SESSION['id']) && isset($_SESSION['name']) && empty($_SESSION['admin'])) {
+        $id = $_SESSION['id'];
+        $name = $_SESSION['name'];
+        ?>
+
+      </li>
+      <li class="menu">
+        <a href="../mypage.php" onfocus="blur()">
+          <img src="../icon/icon_mypage1.png" />
+        </a>
+      </li>
+
+        <?php
+        }
+        ?>
+
+
+
+      </ul>
 
 		</header>
 
@@ -110,8 +156,27 @@ $Msubnum=$_GET['M'];
 		<nav id="nav">
 			<div id="submenu">
 				<ul class="cf">
-							<li class="s_menu ac" style="display:inline"><a href="../signin/signin.php">LOGIN</a></li>
-							<li class="s_menu"><a href="../signup/signup.php">SIGN UP</a></li>
+
+                        <?php
+
+                        if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['admin'])) {
+                          echo "<li class=\"s_menu\"><a href=\"../index_logout.php\">Logout</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../masterpage/Mpage.php\">관리자</a></li>";
+                        }
+
+                        if(!isset($_SESSION['id']) && !isset($_SESSION['name'])) {
+                          echo "<li class=\"s_menu\" style=\"display:inline\"><a href=\"../signin/signin.php\">LOGIN</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../signup/signup.php\">SIGN UP</a></li>";
+                        }
+
+                        if(isset($_SESSION['id']) && isset($_SESSION['name']) && empty($_SESSION['admin'])) {
+                        $id = $_SESSION['id'];
+                        $name = $_SESSION['name'];
+                          echo "<li class=\"s_menu\"><a href=\"../index_logout.php\">Logout</a></li>";
+                          echo "<li class=\"s_menu\"><a href=\"../mypage.php\">$name 님</a></li>";
+                        }
+
+                        ?>
 							<li class="s_menu"><a href="../index.php">HOME</a></li>
 				</ul>
 			</div>
@@ -136,7 +201,7 @@ $Msubnum=$_GET['M'];
 						<button onclick='open_in_frame("Msub04.php")' class="btn ">공지사항 관리</button>
 						<button onclick='open_in_frame("Msub05.php")' class="btn ">문의사항 관리</button>
 					</div>
-				
+
 				<?php if ($Msubnum==1) {
 				  echo "<iframe id='my_frame' src=\"Msub01.php\" ></iframe>";
 				} ?>
