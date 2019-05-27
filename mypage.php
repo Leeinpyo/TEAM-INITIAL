@@ -1,4 +1,12 @@
+<?php
+session_start();
 
+if(!isset($_SESSION['id']) || !isset($_SESSION['name']))
+{
+  echo "<script>alert('잘못된 접근입니다.'); history.back(-1); </script>" ; // 로그인 안된 사람 쫒아냄
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -224,7 +232,7 @@
 					<input type="button" value="로그아웃" onclick="location='index_logout.php'"/>
 					<input type="button" value="정보수정" onclick=""/>
 				</ul>
-				
+
 			</div>
 			<div class="reservation">
 				<img src="images/reservation.png" alt="" />
@@ -272,7 +280,7 @@
 						</a>
 						<input type="button" value="X"/>
 					</li>
-					
+
 					<li class="NaGul1">
 						<ul>
 							<li class="NaGulTitle">글제목글제목글제목글제목글제목글제목글제목글제목글제목글제목글제목글제목글제목</li>
@@ -337,7 +345,7 @@
 					</li>
 				</ul>
 				<input type="button" value="회원탈퇴" onclick=""/>
-				
+
 			</div>
 		</section>
 
