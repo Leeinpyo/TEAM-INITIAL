@@ -26,12 +26,13 @@ ul{list-style-type: none;}
 #Pay{width:45%; height:300PX; float:left
 ; margin-left:5%;}
 
-.month {padding:1% 0px; width:100%; background: #777777; text-align:center;}
+
+.month {padding:10px 0px; width:100%; background: #777777; text-align:center;}
 .month ul {margin:0; padding:0;}
 .month ul li {color:#ffffff; font-size:20px; text-transform:uppercase; letter-spacing: 3px;}
 
-.month .prev {float:left; padding-top:10px; margin-left:5%;}
-.month .next {float:right; padding-top:10px; margin-right:5%;}
+.month .prev {float:left; padding-top:10px; margin-left:10%;}
+.month .next {float:right; padding-top:10px; margin-right:10%;}
 
 .year{font-size:0.8em;}
 
@@ -40,7 +41,7 @@ ul{list-style-type: none;}
 .weekdays {float:left; background-color:#dddddd;  margin:0; width:100%;}
 .weekdays li {display:inline-block; float:left; width:13.5%; height:20px; color:#666666; text-align:center; font-size:15px; }
 
-.days {width:100%; float:left; padding:1% 0; background: #eeeeee; margin: 0;}
+.days {width:100%; float:left; padding:10px 0; background: #eeeeee; margin: 0;}
 .days li { list-style-type:none; display:inline-block; float:left; width:13%; height:20px; text-align: center; font-size:15px; color:#777777; border:1px solid #FFFFFF; }
 .days li a{padding:0 30% 2px 30%; color:#AAAAAA;
   text-decoration: none; cursor:default;}
@@ -55,7 +56,7 @@ ul{list-style-type: none;}
 .Closed{background:#FFB299; color:#FFFFF2 !important;}
 
 
-.Mo{margin-left:-10%; color:#FF2626 !important;}
+.Mo{margin-left:-10px; color:#FF2626 !important;}
 
 .Rtype{float:left; width:100%; background:#999999; font-size:1.2em; }
 .Rtype ul li{width:90%; float:left; color:#ffffff; text-align:center;}
@@ -69,7 +70,7 @@ ul{list-style-type: none;}
 .total {margin-top:20px;}
 
 
-.yeyag{width:98%; height:200px; margin:1%; overflow:auto;}
+.yeyag{width:98%; height:200px; margin:1%; overflow:auto; }
 
 .yeyaglist{width:85%; font-size:1.5em; float:left; border:1px solid ;}
 .yeyaglist:hover{border:1px solid #FF2626;}

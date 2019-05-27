@@ -197,7 +197,7 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 
 				</ul>
 			</div>
-			<img src="images/day.png" style="width:45%;" >
+			<img src="images/day.png" style="width:40%;" >
 		</div>
 	</div>
 	<div id="Pay">
