@@ -57,26 +57,35 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 <body>
 <br />
 <div id="Minfo">
-	<h1>예약 현황</h1>
+	<h1>예약 현황
+    <button type="button" onclick="location.href='Msub01.php?R=1'" class="btn btn-outline-dark" >Room1</button>
+    <button onclick="location.href='Msub01.php?R=2'" class="btn btn-outline-dark">Room2</button>
+    <button onclick="location.href='Msub01.php?R=3'" class="btn btn-outline-dark">Room3</button>
+    <button onclick="location.href='Msub01.php?R=4'" class="btn btn-outline-dark">Room4</button>
+  </h1>
 	<div id="reservation">
 	<h2>room<?=$roomnum?> 예약</h2>
 	<div id="Day">
 		<div class="month">
 			<ul>
 
+				<?php if( $prev_year < $thisyear && $prev_month >= $thismonth ){ ?>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='Msub01.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
+			<?php } ?>
+
 				<?php if( $prev_year <= $thisyear && $prev_month < $thismonth ){ ?>
-				<li class="prev"><input type="button" value="&#10094;" disabled='disabled' ></li>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='Msub01.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
 			<?php } ?>
 
 			<?php if( $prev_year >= $thisyear && $prev_month >= $thismonth ){ ?>
-				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='Msub01.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
 			<?php } ?>
 
 			<?php if( $prev_year > $thisyear && $prev_month < $thismonth ){ ?>
-				<li class="prev"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
+				<li class="prev"><input type="button" onclick="<?php echo "location.href='Msub01.php?R=$roomnum&year=$prev_year&month=$prev_month&day=1';" ?>" value="&#10094;"></li>
 			<?php } ?>
 
-				<li class="next"><input type="button" onclick="<?php echo "location.href='reservation.php?R=$roomnum&year=$next_year&month=$next_month&day=1';" ?>" value="&#10095;"></li>
+				<li class="next"><input type="button" onclick="<?php echo "location.href='Msub01.php?R=$roomnum&year=$next_year&month=$next_month&day=1';" ?>" value="&#10095;"></li>
 				<li>
 					<?=$month?>월<br><!-- 월 -->
 					<span class="year"><?=$year?></span><!-- 년 -->
@@ -202,7 +211,7 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 	</div>
 	<div id="Pay">
 
-<form action=reservation_proc.php?R=<?=$roomnum?> method=post>
+<form action=Msub01_proc.php?R=<?=$roomnum?> method=post>
 
 		<div class="Rtype">
 			<ul>
@@ -298,33 +307,38 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 	</div>
 </div>
 	<div class="yeyag">
-		<ul class="yeyaglist YLclick">
+		<ul class="yeyaglist">
 			<li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
 		</ul>
 		<ul class="yeyaglist">
+      <li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
 		</ul>
 		<ul class="yeyaglist">
+      <li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
 		</ul>
 		<ul class="yeyaglist">
+      <li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
 		</ul>
 		<ul class="yeyaglist">
+      <li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
 		</ul>
 		<ul class="yeyaglist">
+      <li>예약자 명 : ***</li>
 			<li>예약 룸 : room1</li>
 			<li>예약 날짜 : 2019.05.26</li>
 			<li>예약 인원 : 0 명</li>
