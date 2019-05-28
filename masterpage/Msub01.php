@@ -176,7 +176,7 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 
       					            } else
 
-														echo " class=\"today\">&nbsp;$day&nbsp;";
+														echo " class=\"today\">&nbsp;$day";
 
 													} else {
 
@@ -188,7 +188,7 @@ $last_week = date('w', mktime(0, 0, 0, $month, $max_day, $year));
 					            } else {
 											// 13. 이 외 날짜 출력
 													if ($day > 0 && $day < 10){
-														echo ">&nbsp;$day&nbsp;";
+														echo ">&nbsp;$day";
 													} else {
 														echo ">$day";
 													}
