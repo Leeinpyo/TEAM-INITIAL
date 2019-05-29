@@ -62,7 +62,7 @@ if ($roomnum&&$in_year&&$in_month&&$in_day&&$out_year&&$out_month&&$out_day&&$pe
         if($new_date == $end_date)  break ;
         } // 완료
 
-        echo "<script>alert('예약 성공'); history.back(-1); </script>"; // 날짜 등록 완료 메세지
+        echo "<script>alert('예약 성공'); location.href='../room/reservation.php?R=$roomnum&year=$in_year&month=$in_month&day=1'; </script>"; // 날짜 등록 완료 메세지
 
       }
 
@@ -80,7 +80,7 @@ if ($roomnum&&$in_year&&$in_month&&$in_day&&$out_year&&$out_month&&$out_day&&$pe
         if($new_date == $end_date)  break ;
         } // 완료
 
-        echo "<script>alert('예약 성공'); history.back(-1); </script>"; // 날짜 등록 완료 메세지
+        echo "<script>alert('예약 성공'); location.href='../room/reservation.php?R=$roomnum&year=$in_year&month=$in_month&day=1'; </script>"; // 날짜 등록 완료 메세지
 
       }
 
